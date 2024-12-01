@@ -1,6 +1,6 @@
 import streamlit as st
 import openai
-from gtts import gTTS
+
 import os
 
 # Cargar las variables de entorno
