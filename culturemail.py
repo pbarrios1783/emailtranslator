@@ -1,13 +1,16 @@
 import streamlit as st
 import openai
-
+from dotenv import load_dotenv
 import os
 
-# Cargar las variables de entorno
+# Cargar las variables de entorno desde el archivo .env
 load_dotenv()
 
-# Configurar la API de OpenAI desde el archivo .env
+# Configurar la API de OpenAI desde la variable de entorno
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+if not openai.api_key:
+    st.error("❌ No se encontró la clave de API de OpenAI. Asegúrate de configurarla en un archivo .env.")
 
 # --- Función para interactuar con GPT-3.5 ---
 def adaptar_email_gpt(email, cultura, formalidad, idioma):
@@ -126,6 +129,7 @@ if st.button("Adaptar y Traducir Email"):
         st.text_area("Resultado:", value=email_adaptado, height=200)
     else:
         st.error("Por favor, introduce un email para adaptarlo y traducirlo.")
+
 
 
 
