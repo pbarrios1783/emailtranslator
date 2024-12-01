@@ -1,0 +1,3 @@
+streamlit==1.25.0  # Versión de Streamlit (ajusta según tu entorno)
+openai==0.27.8  # Biblioteca para interactuar con la API de OpenAI
+gtts==2.3.2  # Biblioteca para convertir texto a voz
